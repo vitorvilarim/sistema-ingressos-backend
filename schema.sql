@@ -13,3 +13,8 @@ horario_evento text NOT NULL,
 evento_id integer REFERENCES eventos(id)
 );
 
+INSERT INTO eventos (nome, descricao) VALUES 
+('Stand-Up', 'Show de cómedia para fazer você rir com piadas de gosto duvidoso'),
+('Apresentação Teatro', 'Grupo de dança que irá entreter sua noite'),
+('Musical', 'Fãs de High School Musical irão apresentar um cover da saga'),
+('Filme', 'A volta dos que não foram');
