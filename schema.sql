@@ -13,6 +13,13 @@ horario_evento text NOT NULL,
 evento_id integer REFERENCES eventos(id)
 );
 
+CREATE TABLE usuarios (
+  id SERIAL PRIMARY KEY,
+  nome TEXT NOT NULL, 
+  email TEXT UNIQUE NOT NULL,
+  senha TEXT NOT NULL
+);
+
 INSERT INTO eventos (nome, descricao) VALUES 
 ('Stand-Up', 'Show de cómedia para fazer você rir com piadas de gosto duvidoso'),
 ('Apresentação Teatro', 'Grupo de dança que irá entreter sua noite'),
