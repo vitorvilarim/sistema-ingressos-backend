@@ -26,8 +26,30 @@ const escolherEventos = async (req, res) => {
     }
 };
 
+const escolherHorario = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const existeEvento = await knex('eventos').where({ id }).first();
+        if (!existeEvento) {
+            return res.status(404).json({ mensagem: "O evento escolhido não está disponível!" });
+        }
+
+        const horarios = await knex('horario_eventos as h')
+            .select('h.horario_evento as horario', 'e.nome as nome', 'e.descricao as descricao')
+            .leftJoin('eventos as e', 'h.evento_id', 'e.id')
+            .where('e.id', '=', id);
+
+        return res.status(200).json(horarios);
+    } catch (error) {
+        console.log(error.message);
+        return res.status(500).json({ mensagem: 'Erro interno de servidor' });
+    }
+
+}
+
 
 module.exports = {
     listarEventos,
-    escolherEventos
+    escolherEventos,
+    escolherHorario
 };
