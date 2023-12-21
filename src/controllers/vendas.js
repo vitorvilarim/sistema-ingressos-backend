@@ -3,7 +3,8 @@ const { criarToken, cobrar } = require('../api/gateway');
 
 const venda = async (req, res) => {
     const { evento_id, quantidade, card } = req.body;
-
+    const { id } = req.usuario;
+    console.log(id);
     try {
         const produto = await knex('eventos').where({ id: evento_id }).first();
 
@@ -22,7 +23,7 @@ const venda = async (req, res) => {
         const cobranca = await cobrar(valorvenda, 'tok_visa');
 
         const inserirDados = {
-            id: req.usuario.id,
+            usuario_id: id,
             evento_id,
             quantidade,
             transacao_id: cobranca.id
@@ -35,6 +36,7 @@ const venda = async (req, res) => {
                 .status(400)
                 .json({ mensagem: error.response.data.error.message })
         }
+        console.log(error.message);
         return res.status(500).json({ mensagem: 'Erro interno do servidor' })
     }
 }
