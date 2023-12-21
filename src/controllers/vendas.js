@@ -4,7 +4,6 @@ const { criarToken, cobrar } = require('../api/gateway');
 const venda = async (req, res) => {
     const { evento_id, quantidade, card } = req.body;
     const { id } = req.usuario;
-    console.log(id);
     try {
         const produto = await knex('eventos').where({ id: evento_id }).first();
 
