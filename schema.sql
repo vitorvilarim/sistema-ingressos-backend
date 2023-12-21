@@ -4,7 +4,8 @@ CREATE DATABASE ingressos;
 CREATE TABLE eventos(
 id serial PRIMARY KEY,
 nome text NOT NULL,
-descricao text NOT NULL
+descricao text NOT NULL,
+preco text
 );
 
 CREATE TABLE horario_eventos (

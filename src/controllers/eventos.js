@@ -2,7 +2,7 @@ const knex = require("../config/conection");
 
 const listarEventos = async (req, res) => {
     try {
-        const eventos = await knex('eventos');
+        const eventos = await knex('eventos').first();
         return res.status(200).json(eventos);
     } catch (error) {
         console.log(error.message);

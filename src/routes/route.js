@@ -3,6 +3,7 @@ const { listarEventos, escolherEventos, escolherHorario } = require('../controll
 const cadastrarUsuario = require('../controllers/usuarios');
 const login = require('../controllers/login');
 const validarLogin = require('../middleware/validarLogin');
+const { venda } = require('../controllers/vendas');
 const rotas = express();
 
 
@@ -14,4 +15,6 @@ rotas.post('/cadastrar-usuario', cadastrarUsuario);
 rotas.post('/login', login);
 
 rotas.use(validarLogin);
+
+rotas.post('/comprar', venda);
 module.exports = rotas;
