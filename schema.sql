@@ -21,6 +21,16 @@ CREATE TABLE usuarios (
   senha TEXT NOT NULL
 );
 
+CREATE TABLE vendas(
+id SERIAL PRIMARY KEY,
+usuario_id int REFERENCES usuarios(id),
+evento_id int REFERENCES eventos(id),
+quantidade text, 
+transacao_id text
+);
+
+
+
 INSERT INTO eventos (nome, descricao) VALUES 
 ('Stand-Up', 'Show de cómedia para fazer você rir com piadas de gosto duvidoso'),
 ('Apresentação Teatro', 'Grupo de dança que irá entreter sua noite'),
