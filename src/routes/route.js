@@ -4,6 +4,7 @@ const cadastrarUsuario = require('../controllers/usuarios');
 const login = require('../controllers/login');
 const validarLogin = require('../middleware/validarLogin');
 const { venda } = require('../controllers/vendas');
+const relatorio = require('../utils/relatorioCompra');
 const rotas = express();
 
 
@@ -17,4 +18,5 @@ rotas.post('/login', login);
 rotas.use(validarLogin);
 
 rotas.post('/comprar', venda);
+rotas.get('/relatorio', relatorio);
 module.exports = rotas;

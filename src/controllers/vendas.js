@@ -4,7 +4,7 @@ const send = require('../services/emailSend');
 
 const venda = async (req, res) => {
     const { evento_id, quantidade, card } = req.body;
-    const { id, email } = req.usuario;
+    const { id, email, nome } = req.usuario;
     try {
         const produto = await knex('eventos').where({ id: evento_id }).first();
 
@@ -33,14 +33,9 @@ const venda = async (req, res) => {
         }
 
         const vendaRealizada = await knex('vendas').insert(inserirDados).returning('*');
-        return res.status(201).json(cobranca);
+        const venda = `${nome}, você comprou ${quantidade} ingresso(s) para o evento ${produto.nome}. Sua compra foi realizada com sucesso!`
+        return res.status(201).json(venda);
     } catch (error) {
-        // if (error.response) {
-        //     return res
-        //         .status(400)
-        //         .json({ mensagem: error.response.data.error.message })
-        // }
-        console.log(error.message);
         return res.status(500).json({ mensagem: 'Erro interno do servidor' })
     }
 }
