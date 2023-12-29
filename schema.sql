@@ -4,13 +4,21 @@ CREATE DATABASE ingressos;
 CREATE TABLE eventos(
 id serial PRIMARY KEY,
 nome text NOT NULL,
-descricao text NOT NULL
+descricao text NOT NULL,
+preco text
 );
 
 CREATE TABLE horario_eventos (
 id serial PRIMARY KEY,
 horario_evento text NOT NULL,
 evento_id integer REFERENCES eventos(id)
+);
+
+CREATE TABLE usuarios (
+  id SERIAL PRIMARY KEY,
+  nome TEXT NOT NULL, 
+  email TEXT UNIQUE NOT NULL,
+  senha TEXT NOT NULL
 );
 
 INSERT INTO eventos (nome, descricao) VALUES 
