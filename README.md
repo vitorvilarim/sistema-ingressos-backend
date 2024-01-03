@@ -1,60 +1,46 @@
 # sistema-ingressos-backend
 
-## Modelo conceitual
-![Modelo Conceitual](https://github.com/acenelio/assets/raw/main/sds1/modelo-conceitual.png)
+## Sobre
+Para a implementação utilizei Javascript e Node.js no desenvolvimento, com Express.js como framework para o servidor web, e PostgreSQL como Banco de Dados, aderindo aos princípios SOLID e Clean Code. Foi acrescentado também medidas de segurança, como criptografia e autenticação, usando Json Web Token (JWT) e Bcrypt para proteção de dados sensíveis no banco de dados e no sistema. Além disso, foi incorporado o Nodemailer para o envio de e-mails aos clientes, bem como o PDFMake para gerar recibos em pdf.
+
+A API oferece diversas funcionalidades, tais como:
+
+ - 📂 Cadastro de usuários
+ - 🔐 Login com geração de Token
+ - 📋 Listagem de eventos
+ - 📂 Compra de ingressos
+ - 📧 Confirmação de compra por e-mail
+ - 📋 Recibo de compra
+ 
+
 
 # Tecnologias utilizadas
 ## Back end
-- Java
-- Spring Boot
-- JPA / Hibernate
-- Maven
-## Front end
-- HTML / CSS / JS / TypeScript
-- ReactJS
-- React Native
-- Apex Charts
-- Expo
-## Implantação em produção
-- Back end: Heroku
-- Front end web: Netlify
-- Banco de dados: Postgresql
+- Javascript
+- NodeJs
+- ExpressJs
+- PostgreSQL
+
 
 # Como executar o projeto
 
 ## Back end
-Pré-requisitos: Java 11
+Pré-requisitos: Javascript LTS, NodeJs LTS e PostgreSQL
+- Fazer todas as requisições pelo Postman
 
 ```bash
 # clonar repositório
-git clone https://github.com/devsuperior/sds1-wmazoni
+git clone https://github.com/vitorvilarim/sistema-ingressos-backend
 
-# entrar na pasta do projeto back end
-cd backend
-
-# executar o projeto
-./mvnw spring-boot:run
-```
-
-## Front end web
-Pré-requisitos: npm / yarn
-
-```bash
-# clonar repositório
-git clone https://github.com/devsuperior/sds1-wmazoni
-
-# entrar na pasta do projeto front end web
-cd front-web
-
-# instalar dependências
-yarn install
+# entrar na pasta do projeto 
 
 # executar o projeto
-yarn start
+npm run dev
 ```
+
 
 # Autor
 
-Wellington Mazoni de Andrade
+Vitor Vilarim
 
-https://www.linkedin.com/in/wmazoni
+https://www.linkedin.com/in/vitor-vilarim/
