@@ -34,6 +34,9 @@ git clone https://github.com/vitorvilarim/sistema-ingressos-backend
 
 # entrar na pasta do projeto 
 
+# instalar as bibliotecas do projeto
+npm install
+
 # executar o projeto
 npm run dev
 ```
