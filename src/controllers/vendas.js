@@ -35,11 +35,6 @@ const venda = async (req, res) => {
         const vendaRealizada = await knex('vendas').insert(inserirDados).returning('*');
         return res.status(201).json(cobranca);
     } catch (error) {
-        // if (error.response) {
-        //     return res
-        //         .status(400)
-        //         .json({ mensagem: error.response.data.error.message })
-        // }
         console.log(error.message);
         return res.status(500).json({ mensagem: 'Erro interno do servidor' })
     }
